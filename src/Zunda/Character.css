@@ -1,25 +1,40 @@
 .active {
-    animation: buru .1s infinite;
+    animation: buru .1s infinite, stretch .2s ease-in-out 1;
+    transform-origin: bottom center;
 }
 
 @keyframes buru {
     0% {
-        transform: translate(0px, 0px) rotateZ(0deg)
+        transform: translate(0px, 0px);
     }
 
     25% {
-        transform: translate(2px, 2px) rotateZ(0deg)
+        transform: translate(2px, 2px);
     }
 
     50% {
-        transform: translate(0px, 2px) rotateZ(0deg)
+        transform: translate(0px, 2px);
     }
 
     75% {
-        transform: translate(2px, 0px) rotateZ(0deg)
+        transform: translate(2px, 0px);
     }
 
     100% {
-        transform: translate(0px, 0px) rotateZ(0deg)
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes stretch {
+    0% {
+        transform: translateY(0px) scaleY(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scaleY(1.06);
+    }
+
+    100% {
+        transform: translateY(0px) scaleY(1);
     }
 }
