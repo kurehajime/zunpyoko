@@ -1,5 +1,5 @@
 {
-  "vvprojPath": "src/data/voicebox.json",
+  "vvprojPath": "src/data/voicebox.vvproj",
   "wavPath": "kaerunouta.wav",
   "characters": [
     {

@@ -2,7 +2,7 @@ import "./index.css";
 import { Composition } from "remotion";
 import { Stage } from "./Zunda/Stage";
 import { getEndSeconds, type Vvproj } from "./Zunda/vvproj";
-import vvprojData from "./data/voicebox.json";
+import vvprojData from "./data/voicebox.vvproj";
 
 // Each <Composition> is an entry in the sidebar!
 

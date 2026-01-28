@@ -2,7 +2,7 @@ import { AbsoluteFill, Audio, staticFile, useVideoConfig } from "remotion";
 import { Character } from "./Character";
 import type { ZunpyokoConfig } from "./config";
 import { getNotes, ticksToSeconds, type Vvproj } from "./vvproj";
-import vvprojData from "../data/voicebox.json";
+import vvprojData from "../data/voicebox.vvproj";
 import configData from "../data/zunpyoko-config.json";
 
 export const Stage: React.FC = () => {
