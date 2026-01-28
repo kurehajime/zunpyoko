@@ -1,0 +1,54 @@
+{
+  "vvprojPath": "src/data/voicebox.json",
+  "wavPath": "voicebox.wav",
+  "characters": [
+    {
+      "trackName": "無名トラック",
+      "noteRange": { "min": 60, "max": 60 },
+      "imagePath": "dummy_zunda.png",
+      "position": { "x": 160, "y": 120 },
+      "width": 220,
+      "height": 220
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": { "min": 61, "max": 62 },
+      "imagePath": "dummy_zunda.png",
+      "position": { "x": 440, "y": 120 },
+      "width": 220,
+      "height": 220
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": { "min": 63, "max": 64 },
+      "imagePath": "dummy_zunda.png",
+      "position": { "x": 720, "y": 120 },
+      "width": 220,
+      "height": 220
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": { "min": 65, "max": 66 },
+      "imagePath": "dummy_zunda.png",
+      "position": { "x": 1000, "y": 120 },
+      "width": 220,
+      "height": 220
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": { "min": 67, "max": 68 },
+      "imagePath": "dummy_zunda.png",
+      "position": { "x": 1280, "y": 120 },
+      "width": 220,
+      "height": 220
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": { "min": 69, "max": 69 },
+      "imagePath": "dummy_zunda.png",
+      "position": { "x": 1560, "y": 120 },
+      "width": 220,
+      "height": 220
+    }
+  ]
+}

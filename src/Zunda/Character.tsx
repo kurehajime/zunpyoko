@@ -1,22 +1,36 @@
-import { Img, staticFile } from "remotion";
+import { Img } from "remotion";
 
 type CharacterProps = {
-  size?: number;
+  width?: number;
+  height?: number;
+  src: string;
+  position: {
+    x: number;
+    y: number;
+  };
 };
 
-export const Character: React.FC<CharacterProps> = ({ size = 220 }) => {
+export const Character: React.FC<CharacterProps> = ({
+  width = 220,
+  height = 220,
+  src,
+  position,
+}) => {
   return (
     <div
       style={{
-        width: size,
-        height: size,
+        position: "absolute",
+        left: position.x,
+        bottom: position.y,
+        width,
+        height,
         display: "flex",
         alignItems: "flex-end",
         justifyContent: "center",
       }}
     >
       <Img
-        src={staticFile("dummy_zunda.png")}
+        src={src}
         style={{
           width: "100%",
           height: "100%",
