@@ -1,25 +1,25 @@
-import { AbsoluteFill, staticFile } from "remotion";
+import {
+  AbsoluteFill,
+  Audio,
+  Sequence,
+  staticFile,
+  useVideoConfig,
+} from "remotion";
 import { Character } from "./Character";
 import type { ZunpyokoConfig } from "./config";
-import { getNoteNumbers, type Vvproj } from "./vvproj";
+import { getNotes, ticksToSeconds, type Vvproj } from "./vvproj";
 import vvprojData from "../data/voicebox.json";
 import configData from "../data/zunpyoko-config.json";
 
 export const Stage: React.FC = () => {
+  const { fps } = useVideoConfig();
   const vvproj = vvprojData as Vvproj;
   const zunpyokoConfig = configData as ZunpyokoConfig;
-  const activeCharacters = zunpyokoConfig.characters.filter((character) => {
-    const noteNumbers = getNoteNumbers(vvproj, character.trackName);
-    return noteNumbers.some(
-      (noteNumber) =>
-        noteNumber >= character.noteRange.min &&
-        noteNumber <= character.noteRange.max,
-    );
-  });
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#f7f6f2" }}>
-      {activeCharacters.map((character, index) => (
+      <Audio src={staticFile(zunpyokoConfig.wavPath)} />
+      {zunpyokoConfig.characters.map((character, index) => (
         <Character
           key={`${character.position.x}-${index}`}
           width={character.width}
@@ -28,6 +28,47 @@ export const Stage: React.FC = () => {
           position={character.position}
         />
       ))}
+      {zunpyokoConfig.characters.flatMap((character, index) => {
+        const notes = getNotes(vvproj, character.trackName).filter(
+          (note) =>
+            note.noteNumber >= character.noteRange.min &&
+            note.noteNumber <= character.noteRange.max,
+        );
+
+        return notes.map((note) => {
+          const startSeconds = ticksToSeconds(
+            note.position,
+            vvproj.song.tempos,
+            vvproj.song.tpqn,
+          );
+          const endSeconds = ticksToSeconds(
+            note.position + note.duration,
+            vvproj.song.tempos,
+            vvproj.song.tpqn,
+          );
+          const startFrame = Math.max(0, Math.round(startSeconds * fps));
+          const durationInFrames = Math.max(
+            1,
+            Math.round((endSeconds - startSeconds) * fps),
+          );
+
+          return (
+            <Sequence
+              key={`${character.trackName}-${note.position}-${note.noteNumber}-${index}`}
+              from={startFrame}
+              durationInFrames={durationInFrames}
+            >
+              <Character
+                width={character.width}
+                height={character.height}
+                src={staticFile(character.imagePath)}
+                position={character.position}
+                active
+              />
+            </Sequence>
+          );
+        });
+      })}
     </AbsoluteFill>
   );
 };
