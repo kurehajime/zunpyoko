@@ -6,7 +6,7 @@
       "trackName": "無名トラック",
       "noteRange": {
         "min": 60,
-        "max": 60
+        "max": 61
       },
       "imagePath": "dummy_zunda.png",
       "activeImagePath": "dummy_zunda_active.png",
@@ -20,8 +20,8 @@
     {
       "trackName": "無名トラック",
       "noteRange": {
-        "min": 61,
-        "max": 62
+        "min": 62,
+        "max": 63
       },
       "imagePath": "dummy_zunda.png",
       "activeImagePath": "dummy_zunda_active.png",
@@ -35,7 +35,7 @@
     {
       "trackName": "無名トラック",
       "noteRange": {
-        "min": 63,
+        "min": 64,
         "max": 64
       },
       "imagePath": "dummy_zunda.png",
