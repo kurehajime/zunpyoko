@@ -5,6 +5,7 @@ export type CharacterConfig = {
     max: number;
   };
   imagePath: string;
+  activeImagePath?: string;
   position: {
     x: number;
     y: number;

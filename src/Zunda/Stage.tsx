@@ -1,10 +1,4 @@
-import {
-  AbsoluteFill,
-  Audio,
-  Sequence,
-  staticFile,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill, Audio, staticFile, useVideoConfig } from "remotion";
 import { Character } from "./Character";
 import type { ZunpyokoConfig } from "./config";
 import { getNotes, ticksToSeconds, type Vvproj } from "./vvproj";
@@ -19,23 +13,13 @@ export const Stage: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#f7f6f2" }}>
       <Audio src={staticFile(zunpyokoConfig.wavPath)} />
-      {zunpyokoConfig.characters.map((character, index) => (
-        <Character
-          key={`${character.position.x}-${index}`}
-          width={character.width}
-          height={character.height}
-          src={staticFile(character.imagePath)}
-          position={character.position}
-        />
-      ))}
-      {zunpyokoConfig.characters.flatMap((character, index) => {
+      {zunpyokoConfig.characters.map((character, index) => {
         const notes = getNotes(vvproj, character.trackName).filter(
           (note) =>
             note.noteNumber >= character.noteRange.min &&
             note.noteNumber <= character.noteRange.max,
         );
-
-        return notes.map((note) => {
+        const activeIntervals = notes.map((note) => {
           const startSeconds = ticksToSeconds(
             note.position,
             vvproj.song.tempos,
@@ -52,22 +36,25 @@ export const Stage: React.FC = () => {
             Math.round((endSeconds - startSeconds) * fps),
           );
 
-          return (
-            <Sequence
-              key={`${character.trackName}-${note.position}-${note.noteNumber}-${index}`}
-              from={startFrame}
-              durationInFrames={durationInFrames}
-            >
-              <Character
-                width={character.width}
-                height={character.height}
-                src={staticFile(character.imagePath)}
-                position={character.position}
-                active
-              />
-            </Sequence>
-          );
+          return {
+            start: startFrame,
+            end: startFrame + durationInFrames,
+          };
         });
+
+        return (
+          <Character
+            key={`${character.position.x}-${index}`}
+            width={character.width}
+            height={character.height}
+            src={staticFile(character.imagePath)}
+            activeSrc={staticFile(
+              character.activeImagePath ?? character.imagePath,
+            )}
+            activeIntervals={activeIntervals}
+            position={character.position}
+          />
+        );
       })}
     </AbsoluteFill>
   );

@@ -1,10 +1,12 @@
-import { Img } from "remotion";
+import { Img, useCurrentFrame } from "remotion";
 import "./Character.css";
 
 type CharacterProps = {
   width?: number;
   height?: number;
   src: string;
+  activeSrc?: string;
+  activeIntervals?: Array<{ start: number; end: number }>;
   active?: boolean;
   position: {
     x: number;
@@ -16,12 +18,20 @@ export const Character: React.FC<CharacterProps> = ({
   width = 220,
   height = 220,
   src,
+  activeSrc,
+  activeIntervals,
   active = false,
   position,
 }) => {
+  const frame = useCurrentFrame();
+  const isActive =
+    activeIntervals?.some(({ start, end }) => frame >= start && frame < end) ??
+    active;
+  const displaySrc = isActive && activeSrc ? activeSrc : src;
+
   return (
     <div
-      className={active ? "active" : undefined}
+      className={isActive ? "active" : undefined}
       style={{
         position: "absolute",
         left: position.x,
@@ -34,7 +44,7 @@ export const Character: React.FC<CharacterProps> = ({
       }}
     >
       <Img
-        src={src}
+        src={displaySrc}
         style={{
           width: "100%",
           height: "100%",

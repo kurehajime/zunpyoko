@@ -9,6 +9,7 @@
         "max": 60
       },
       "imagePath": "dummy_zunda.png",
+      "activeImagePath": "dummy_zunda_active.png",
       "position": {
         "x": 160,
         "y": 120
@@ -23,6 +24,7 @@
         "max": 62
       },
       "imagePath": "dummy_zunda.png",
+      "activeImagePath": "dummy_zunda_active.png",
       "position": {
         "x": 440,
         "y": 120
@@ -37,6 +39,7 @@
         "max": 64
       },
       "imagePath": "dummy_zunda.png",
+      "activeImagePath": "dummy_zunda_active.png",
       "position": {
         "x": 720,
         "y": 120
@@ -51,6 +54,7 @@
         "max": 66
       },
       "imagePath": "dummy_zunda.png",
+      "activeImagePath": "dummy_zunda_active.png",
       "position": {
         "x": 1000,
         "y": 120
@@ -65,6 +69,7 @@
         "max": 68
       },
       "imagePath": "dummy_zunda.png",
+      "activeImagePath": "dummy_zunda_active.png",
       "position": {
         "x": 1280,
         "y": 120
@@ -79,6 +84,7 @@
         "max": 69
       },
       "imagePath": "dummy_zunda.png",
+      "activeImagePath": "dummy_zunda_active.png",
       "position": {
         "x": 1560,
         "y": 120
