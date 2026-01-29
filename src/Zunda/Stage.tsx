@@ -19,7 +19,7 @@ export const Stage: React.FC = () => {
             note.noteNumber >= character.noteRange.min &&
             note.noteNumber <= character.noteRange.max,
         );
-        const activeIntervals = notes.map((note) => {
+        const rawIntervals = notes.map((note) => {
           const startSeconds = ticksToSeconds(
             note.position,
             vvproj.song.tempos,
@@ -41,6 +41,21 @@ export const Stage: React.FC = () => {
             end: startFrame + durationInFrames,
           };
         });
+        const activeIntervals = rawIntervals
+          .sort((a, b) => a.start - b.start)
+          .reduce<Array<{ start: number; end: number }>>((merged, interval) => {
+            const last = merged[merged.length - 1];
+            if (!last) {
+              merged.push(interval);
+              return merged;
+            }
+            if (interval.start - last.end <= zunpyokoConfig.activeMergeGapFrames) {
+              last.end = Math.max(last.end, interval.end);
+            } else {
+              merged.push(interval);
+            }
+            return merged;
+          }, []);
 
         return (
           <Character

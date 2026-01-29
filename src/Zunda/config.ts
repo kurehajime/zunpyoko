@@ -17,5 +17,6 @@ export type CharacterConfig = {
 export type ZunpyokoConfig = {
   vvprojPath: string;
   wavPath: string;
+  activeMergeGapFrames: number;
   characters: CharacterConfig[];
 };

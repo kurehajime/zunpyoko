@@ -1,6 +1,7 @@
 {
   "vvprojPath": "src/data/voicebox.vvproj",
   "wavPath": "kaerunouta.wav",
+  "activeMergeGapFrames": 2,
   "characters": [
     {
       "trackName": "無名トラック",
