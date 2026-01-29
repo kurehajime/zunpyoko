@@ -1,25 +1,48 @@
 import "./index.css";
-import { Composition } from "remotion";
+import {
+  Composition,
+  staticFile,
+  type CalculateMetadataFunction,
+} from "remotion";
 import { Stage } from "./Zunda/Stage";
 import { getEndSeconds, type Vvproj } from "./Zunda/vvproj";
-import vvprojData from "./data/voicebox.vvproj";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   const fps = 30;
-  const vvproj = vvprojData as Vvproj;
-  const durationInFrames = Math.max(1, Math.ceil(getEndSeconds(vvproj) * fps));
+  const calculateMetadata: CalculateMetadataFunction<
+    React.ComponentProps<typeof Stage>
+  > = async ({ props }) => {
+    const configUrl = props.configUrl ?? "zunpyoko-config.json";
+    const configResponse = await fetch(staticFile(configUrl));
+    const config = (await configResponse.json()) as { vvprojPath: string };
+    const vvprojResponse = await fetch(staticFile(config.vvprojPath));
+    const vvproj = (await vvprojResponse.json()) as Vvproj;
+    const durationInFrames = Math.max(
+      1,
+      Math.ceil(getEndSeconds(vvproj) * fps),
+    );
+
+    return {
+      durationInFrames,
+      props,
+    };
+  };
 
   return (
     <>
       <Composition
         id="zunpyoko"
         component={Stage}
-        durationInFrames={durationInFrames}
+        durationInFrames={150}
         fps={fps}
         width={1920}
         height={1080}
+        defaultProps={{
+          configUrl: "zunpyoko-config.json",
+        }}
+        calculateMetadata={calculateMetadata}
       />
     </>
   );

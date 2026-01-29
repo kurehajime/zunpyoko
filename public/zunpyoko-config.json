@@ -1,5 +1,5 @@
 {
-  "vvprojPath": "src/data/voicebox.vvproj",
+  "vvprojPath": "voicebox.vvproj",
   "wavPath": "kaerunouta.wav",
   "activeMergeGapFrames": 2,
   "characters": [
