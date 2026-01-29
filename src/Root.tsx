@@ -14,7 +14,7 @@ export const RemotionRoot: React.FC = () => {
   const calculateMetadata: CalculateMetadataFunction<
     React.ComponentProps<typeof Stage>
   > = async ({ props }) => {
-    const configUrl = props.configUrl ?? "zunpyoko-config.json";
+    const configUrl = props.configUrl ?? "kaerunouta/translate.json";
     const configResponse = await fetch(staticFile(configUrl));
     const config = (await configResponse.json()) as { vvprojPath: string };
     const vvprojResponse = await fetch(staticFile(config.vvprojPath));
@@ -40,7 +40,7 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
         defaultProps={{
-          configUrl: "zunpyoko-config.json",
+          configUrl: "kaerunouta/translate.json",
         }}
         calculateMetadata={calculateMetadata}
       />

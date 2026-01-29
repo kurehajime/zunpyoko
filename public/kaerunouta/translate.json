@@ -1,6 +1,6 @@
 {
-  "vvprojPath": "voicebox.vvproj",
-  "wavPath": "kaerunouta.wav",
+  "vvprojPath": "kaerunouta/voicebox.vvproj",
+  "wavPath": "kaerunouta/kaerunouta.wav",
   "activeMergeGapFrames": 2,
   "characters": [
     {
@@ -9,8 +9,8 @@
         "min": 60,
         "max": 61
       },
-      "imagePath": "dummy_zunda.png",
-      "activeImagePath": "dummy_zunda_active.png",
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
       "position": {
         "x": -160,
         "y": 120
@@ -24,8 +24,8 @@
         "min": 62,
         "max": 63
       },
-      "imagePath": "dummy_zunda.png",
-      "activeImagePath": "dummy_zunda_active.png",
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
       "position": {
         "x": 160,
         "y": 120
@@ -39,8 +39,8 @@
         "min": 64,
         "max": 64
       },
-      "imagePath": "dummy_zunda.png",
-      "activeImagePath": "dummy_zunda_active.png",
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
       "position": {
         "x": 480,
         "y": 120
@@ -54,8 +54,8 @@
         "min": 65,
         "max": 66
       },
-      "imagePath": "dummy_zunda.png",
-      "activeImagePath": "dummy_zunda_active.png",
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
       "position": {
         "x": 800,
         "y": 120
@@ -69,8 +69,8 @@
         "min": 67,
         "max": 68
       },
-      "imagePath": "dummy_zunda.png",
-      "activeImagePath": "dummy_zunda_active.png",
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
       "position": {
         "x": 1120,
         "y": 120
@@ -84,8 +84,8 @@
         "min": 69,
         "max": 69
       },
-      "imagePath": "dummy_zunda.png",
-      "activeImagePath": "dummy_zunda_active.png",
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
       "position": {
         "x": 1440,
         "y": 120

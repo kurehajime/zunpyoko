@@ -17,7 +17,7 @@ type StageProps = {
 };
 
 export const Stage: React.FC<StageProps> = ({
-  configUrl = "zunpyoko-config.json",
+  configUrl = "kaerunouta/translate.json",
 }) => {
   const { fps } = useVideoConfig();
   const [config, setConfig] = useState<ZunpyokoConfig | null>(null);
