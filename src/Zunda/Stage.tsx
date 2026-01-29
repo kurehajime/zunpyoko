@@ -11,15 +11,11 @@ import { useEffect, useMemo, useState } from "react";
 import { Character } from "./Character";
 import type { ZunpyokoConfig } from "./config";
 import { getNotes, ticksToSeconds, type Vvproj } from "./vvproj";
-import { TRANSLATE_JSON } from "../setting";
-
 type StageProps = {
   configUrl?: string;
 };
 
-export const Stage: React.FC<StageProps> = ({
-  configUrl = TRANSLATE_JSON,
-}) => {
+export const Stage: React.FC<StageProps> = ({ configUrl }) => {
   const { fps } = useVideoConfig();
   const [config, setConfig] = useState<ZunpyokoConfig | null>(null);
   const [vvproj, setVvproj] = useState<Vvproj | null>(null);
@@ -30,6 +26,9 @@ export const Stage: React.FC<StageProps> = ({
 
     const load = async () => {
       try {
+        if (!configUrl) {
+          throw new Error("configUrl is required");
+        }
         const configResponse = await fetch(staticFile(configUrl));
         if (!configResponse.ok) {
           throw new Error(`Failed to load config: ${configResponse.status}`);

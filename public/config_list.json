@@ -1,0 +1,10 @@
+[
+  {
+    "id": "kaerunouta",
+    "configUrl": "kaerunouta/config.json"
+  },
+  {
+    "id": "nekohunjatta",
+    "configUrl": "nekohunjatta/config.json"
+  }
+]
