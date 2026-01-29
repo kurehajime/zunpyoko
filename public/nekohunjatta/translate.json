@@ -1,0 +1,97 @@
+{
+  "vvprojPath": "nekohunjatta/voicebox.vvproj",
+  "wavPath": "nekohunjatta/nekohunjatta.wav",
+  "activeMergeGapFrames": 2,
+  "characters": [
+    {
+      "trackName": "無名トラック",
+      "noteRange": {
+        "min": 50,
+        "max": 51
+      },
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
+      "position": {
+        "x": -160,
+        "y": 120
+      },
+      "width": 640,
+      "height": 640
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": {
+        "min": 52,
+        "max": 54
+      },
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
+      "position": {
+        "x": 160,
+        "y": 120
+      },
+      "width": 640,
+      "height": 640
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": {
+        "min": 55,
+        "max": 58
+      },
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
+      "position": {
+        "x": 480,
+        "y": 120
+      },
+      "width": 640,
+      "height": 640
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": {
+        "min": 59,
+        "max": 62
+      },
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
+      "position": {
+        "x": 800,
+        "y": 120
+      },
+      "width": 640,
+      "height": 640
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": {
+        "min": 63,
+        "max": 65
+      },
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
+      "position": {
+        "x": 1120,
+        "y": 120
+      },
+      "width": 640,
+      "height": 640
+    },
+    {
+      "trackName": "無名トラック",
+      "noteRange": {
+        "min": 66,
+        "max": 67
+      },
+      "imagePath": "images/zunda_normal.png",
+      "activeImagePath": "images/zunda_active.png",
+      "position": {
+        "x": 1440,
+        "y": 120
+      },
+      "width": 640,
+      "height": 640
+    }
+  ]
+}

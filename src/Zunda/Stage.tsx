@@ -11,13 +11,14 @@ import { useEffect, useMemo, useState } from "react";
 import { Character } from "./Character";
 import type { ZunpyokoConfig } from "./config";
 import { getNotes, ticksToSeconds, type Vvproj } from "./vvproj";
+import { TRANSLATE_JSON } from "../setting";
 
 type StageProps = {
   configUrl?: string;
 };
 
 export const Stage: React.FC<StageProps> = ({
-  configUrl = "kaerunouta/translate.json",
+  configUrl = TRANSLATE_JSON,
 }) => {
   const { fps } = useVideoConfig();
   const [config, setConfig] = useState<ZunpyokoConfig | null>(null);
