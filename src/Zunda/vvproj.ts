@@ -21,9 +21,11 @@ export type Vvproj = {
 };
 
 export const getNotes = (vvproj: Vvproj, trackName?: string): VvprojNote[] => {
-  const tracks = Object.values(vvproj.song.tracks).filter((track) =>
-    trackName ? track.name === trackName : true,
-  );
+  const allTracks = Object.values(vvproj.song.tracks);
+  const tracks =
+    trackName && trackName.trim().length > 0
+      ? allTracks.filter((track) => track.name === trackName)
+      : allTracks.slice(0, 1);
   const notes: VvprojNote[] = [];
 
   for (const track of tracks) {

@@ -1,5 +1,5 @@
 export type CharacterConfig = {
-  trackName: string;
+  trackName?: string;
   noteRange: {
     min: number;
     max: number;
